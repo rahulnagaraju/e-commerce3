@@ -37,11 +37,11 @@ func main() {
 
 	r.GET("/user/:id/order", uc.PlaceOrder)
 
-	http.ListenAndServe("localhost:8080", r)
+	http.ListenAndServe("172.18.0.3:9012", r)
 }
 
 func getSession() *mgo.Session {
-	s, err := mgo.Dial("mongodb://localhost")
+	s, err := mgo.Dial("mongodb://172.18.0.2")
 
 	if err != nil {
 		panic(err)
